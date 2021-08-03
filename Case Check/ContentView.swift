@@ -134,6 +134,46 @@ let phonesList: [Phone] = [
             Case(name: "Black", type: .silicone, image: "8/Silicone/black")
           ]
     ),
+    Phone(name: "iPhone X", image: "X/Leather/bright orange",
+          caseTypes: [.folio, .leather, .silicone],
+          caseList: [
+            Case(name: "Black", type: .leather, image: "X/Leather/black"),
+            Case(name: "Bright Orange", type: .leather, image: "X/Leather/bright orange"),
+            Case(name: "Charcoal Gray", type: .leather, image: "X/Leather/charcoal gray"),
+            Case(name: "Cosmos Blue", type: .leather, image: "X/Leather/cosmos blue"),
+            Case(name: "Dark Aubergine", type: .leather, image: "X/Leather/Dark Aubergine"),
+            Case(name: "Electric Blue", type: .leather, image: "X/Leather/electric blue"),
+            Case(name: "Midnight Blue", type: .leather, image: "X/Leather/midnight blue"),
+            Case(name: "Pink Fuchsia", type: .leather, image: "X/Leather/pink fuchsia"),
+            Case(name: "Product Red", type: .leather, image: "X/Leather/product red"),
+            Case(name: "Saddle Brown", type: .leather, image: "X/Leather/saddle brown"),
+            Case(name: "Soft Pink", type: .leather, image: "X/Leather/soft pink"),
+            Case(name: "Spring Yellow", type: .leather, image: "X/Leather/spring yellow"),
+            Case(name: "Taupe", type: .leather, image: "X/Leather/Taupe"),
+            
+            Case(name: "Berry", type: .folio, image: "X/Folio/berry"),
+            Case(name: "Charcoal Gray", type: .folio, image: "X/Folio/charcole gray"),
+            Case(name: "Electric Blue", type: .folio, image: "X/Folio/electric blue"),
+            Case(name: "Red", type: .folio, image: "X/Folio/red"),
+            Case(name: "Soft Pink", type: .folio, image: "X/Folio/soft pink"),
+            
+            Case(name: "Black", type: .silicone, image: "X/Silicone/black"),
+            Case(name: "Cobalt Blue", type: .silicone, image: "X/Silicone/cobalt blue"),
+            Case(name: "Cosmos Blue", type: .silicone, image: "X/Silicone/cosmos blue"),
+            Case(name: "Denim Blue", type: .silicone, image: "X/Silicone/denim blue"),
+            Case(name: "Midnight Blue", type: .silicone, image: "X/Silicone/midnight blue"),
+            Case(name: "Ultra Violet", type: .silicone, image: "X/Silicone/ultra violet"),
+            Case(name: "Dark Olive", type: .silicone, image: "X/Silicone/dark olive"),
+            Case(name: "Flash", type: .silicone, image: "X/Silicone/flash"),
+            Case(name: "Lemonde", type: .silicone, image: "X/Silicone/lemonade"),
+            Case(name: "Pink Sand", type: .silicone, image: "X/Silicone/pink sand"),
+            Case(name: "Product Red", type: .silicone, image: "X/Silicone/product red"),
+            Case(name: "Raspberry Red", type: .silicone, image: "X/Silicone/raspberry red"),
+            Case(name: "Rose Red", type: .silicone, image: "X/Silicone/rose red"),
+            Case(name: "Spicy Orange", type: .silicone, image: "X/Silicone/spicy orange"),
+            Case(name: "White", type: .silicone, image: "X/Silicone/white"),
+            
+          ]),
     Phone(name: "iPhone 11", image: "11/Leather/black",
           caseTypes: [.battery, .silicone],
           caseList: [
@@ -176,6 +216,7 @@ let phonesList: [Phone] = [
             Case(name: "White", type: .silicone, image: "11 Pro/Silicone/white")
           ]
          ),
+    
 ]
 
 struct ContentView: View {

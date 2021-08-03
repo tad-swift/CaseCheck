@@ -18,7 +18,7 @@
 		45B90EF0266FD09C00F79921 /* Case Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Case Check.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case_CheckApp.swift; sourceTree = "<group>"; };
 		45B90EF5266FD09C00F79921 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		45B90EF7266FD09E00F79921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45B90EF7266FD09E00F79921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/tadreik/Library/Apps/Case Check/Case Check/Assets.xcassets"; sourceTree = "<absolute>"; };
 		45B90EFA266FD09E00F79921 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45B90EFC266FD09E00F79921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
