@@ -174,6 +174,13 @@ let phonesList: [Phone] = [
             Case(name: "White", type: .silicone, image: "X/Silicone/white"),
             
           ]),
+    Phone(name: "iPhone XR", image: "Xs Xr/Xr/clear",
+          caseTypes: [.clear, .battery],
+          caseList: [
+            Case(name: "Clear", type: .clear, image: "Xs Xr/Xr/clear"),
+            Case(name: "Black", type: .battery, image: "Xs Xr/Xr/black"),
+            Case(name: "White", type: .battery, image: "Xs Xr/Xr/white")
+          ]),
     Phone(name: "iPhone 11", image: "11/Leather/black",
           caseTypes: [.battery, .silicone],
           caseList: [
