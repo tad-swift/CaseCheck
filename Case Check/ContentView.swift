@@ -7,13 +7,9 @@
 
 import SwiftUI
 
-enum CaseType: String {
-    case leather
-    case silicone
-    case battery
-    case folio
-    case sleeve
-    case clear
+enum CaseType: String, CaseIterable {
+    case leather, silicone, battery
+    case folio, sleeve, clear
 }
 
 struct Case: Hashable {
@@ -181,7 +177,10 @@ let phonesList: [Phone] = [
             Case(name: "Black", type: .battery, image: "Xs Xr/Xr/black"),
             Case(name: "White", type: .battery, image: "Xs Xr/Xr/white")
           ]),
-    Phone(name: "iPhone 11", image: "11/Leather/black",
+    Phone(name: "iPhone Xs", image: "Xs Xr/Xs Silicone/dragon fruit",
+          caseTypes: [.battery, .folio, .leather, .silicone],
+          caseList: []),
+    Phone(name: "iPhone 11", image: "11/Silicone/Black",
           caseTypes: [.battery, .silicone],
           caseList: [
             Case(name: "Black", type: .battery, image: "11/Battery/black"),
@@ -223,13 +222,15 @@ let phonesList: [Phone] = [
             Case(name: "White", type: .silicone, image: "11 Pro/Silicone/white")
           ]
          ),
-    
+    Phone(name: "iPhone 12", image: "12 Series/Leather/Deep Violet",
+          caseTypes: [.clear, .leather, .silicone, .sleeve],
+          caseList: [])
 ]
 
 struct ContentView: View {
     var body: some View {
         List(phonesList) { item in
-            NavigationLink(destination: CasesView(phone: item)) {
+            NavigationLink(destination: CasesView(phone: item, list: item.caseList)) {
                 PhoneView(phone: item)
             }
         }
@@ -256,25 +257,53 @@ struct PhoneView: View {
 
 struct CasesView: View {
     var phone: Phone
-    @State private var section = 0
+    @State var list: [Case]
     var body: some View {
-        TabView {
-            ForEach(phone.caseList, id: \.self) { item in
-                VStack {
-                    Image(uiImage: UIImage(named: item.image) ?? UIImage())
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200, alignment: .center)
-                    Text(item.name)
-                        .font(.title)
-                        .bold()
-                        .padding(.top, 20)
-                    Text(item.type.rawValue.capitalized)
-                        .font(.body)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(Color.green)
-                        .cornerRadius(4)
+        VStack {
+            HStack {
+                ForEach(phone.caseTypes, id: \.self) { type in
+                    Button(type.rawValue.uppercased()) {
+                        switch type {
+                            case .leather:
+                                break
+                            case .silicone:
+                                break
+                            case .battery:
+                                break
+                            case .folio:
+                                break
+                            case .sleeve:
+                                break
+                            case .clear:
+                                break
+                        }
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Color.green)
+                    .clipShape(Capsule())
+                }
+            }
+            .padding()
+            TabView {
+                ForEach(phone.caseList, id: \.self) { item in
+                    VStack {
+                        Image(uiImage: UIImage(named: item.image) ?? UIImage())
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200, alignment: .center)
+                        Text(item.name)
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 20)
+                        Text(item.type.rawValue.capitalized)
+                            .font(.body)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.green)
+                            .cornerRadius(4)
+                    }
+                    .padding(.top, 16)
                 }
             }
         }
@@ -284,14 +313,3 @@ struct CasesView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewDevice("iPhone 12 Pro")
-    }
-}
-
-
-
-

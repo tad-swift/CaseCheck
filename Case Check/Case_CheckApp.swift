@@ -23,3 +23,18 @@ struct Case_CheckApp: App {
         }
     }
 }
+
+struct App_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            List(phonesList) { item in
+                NavigationLink(destination: CasesView(phone: item)) {
+                    PhoneView(phone: item)
+                }
+            }
+            .listStyle(PlainListStyle())
+            .navigationBarTitle("iPhones", displayMode: .large)
+        }
+        .previewDevice("iPhone 12")
+    }
+}
