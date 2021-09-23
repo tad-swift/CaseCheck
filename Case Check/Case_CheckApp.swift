@@ -13,7 +13,7 @@ struct Case_CheckApp: App {
         WindowGroup {
             NavigationView {
                 List(phonesList) { item in
-                    NavigationLink(destination: CasesView(phone: item)) {
+                    NavigationLink(destination: CasesView(phone: item, list: item.caseList)) {
                         PhoneView(phone: item)
                     }
                 }
@@ -28,7 +28,7 @@ struct App_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List(phonesList) { item in
-                NavigationLink(destination: CasesView(phone: item)) {
+                NavigationLink(destination: CasesView(phone: item, list: item.caseList)) {
                     PhoneView(phone: item)
                 }
             }

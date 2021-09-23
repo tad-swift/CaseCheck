@@ -179,7 +179,46 @@ let phonesList: [Phone] = [
           ]),
     Phone(name: "iPhone Xs", image: "Xs Xr/Xs Silicone/dragon fruit",
           caseTypes: [.battery, .folio, .leather, .silicone],
-          caseList: []),
+          caseList: [
+            Case(name: "Black", type: .battery, image: "Xs Xr/Xs Battery/black"),
+            Case(name: "Pink Sand", type: .battery, image: "Xs Xr/Xs Battery/pink sand"),
+            Case(name: "White", type: .battery, image: "Xs Xr/Xs Battery/white"),
+            
+            Case(name: "Black", type: .folio, image: "Xs Xr/Xs Folio/Black"),
+            Case(name: "Cape Cod Blue", type: .folio, image: "Xs Xr/Xs Folio/Cape Cod Blue"),
+            Case(name: "cornflower", type: .folio, image: "Xs Xr/Xs Folio/cornflower"),
+            Case(name: "forest green", type: .folio, image: "Xs Xr/Xs Folio/forest green"),
+            Case(name: "Lilac", type: .folio, image: "Xs Xr/Xs Folio/lilac"),
+            Case(name: "Peony Pink", type: .folio, image: "Xs Xr/Xs Folio/Peony Pink"),
+            Case(name: "Red", type: .folio, image: "Xs Xr/Xs Folio/Red"),
+            Case(name: "sunset", type: .folio, image: "Xs Xr/Xs Folio/sunset"),
+            
+            Case(name: "Black", type: .leather, image: "Xs Xr/Xs Leather/black"),
+            Case(name: "Cape Cod Blue", type: .leather, image: "Xs Xr/Xs Leather/cape cod blue"),
+            Case(name: "Cornflower", type: .leather, image: "Xs Xr/Xs Leather/cornflower"),
+            Case(name: "Forest Green", type: .leather, image: "Xs Xr/Xs Leather/Forest Green"),
+            Case(name: "Lilac", type: .leather, image: "Xs Xr/Xs Leather/Lilac"),
+            Case(name: "Midnight Blue", type: .leather, image: "Xs Xr/Xs Leather/Midnight Blue"),
+            Case(name: "Peony Pink", type: .leather, image: "Xs Xr/Xs Leather/Peony Pink"),
+            Case(name: "Red", type: .leather, image: "Xs Xr/Xs Leather/red"),
+            Case(name: "Saddle Brown", type: .leather, image: "Xs Xr/Xs Leather/saddle brown"),
+            Case(name: "Sunset", type: .leather, image: "Xs Xr/Xs Leather/sunset"),
+            Case(name: "Taupe", type: .leather, image: "Xs Xr/Xs Leather/Taupe"),
+            
+            Case(name: "Black", type: .silicone, image: "Xs Xr/Xs Silicone/black"),
+            Case(name: "Blue Horizon", type: .silicone, image: "Xs Xr/Xs Silicone/blue horizon"),
+            Case(name: "Delft Blue", type: .silicone, image: "Xs Xr/Xs Silicone/Delft Blue"),
+            Case(name: "Dragon Fruit", type: .silicone, image: "Xs Xr/Xs Silicone/dragon fruit"),
+            Case(name: "Lavender Gray", type: .silicone, image: "Xs Xr/Xs Silicone/Lavender Gray"),
+            Case(name: "Midnight Blue", type: .silicone, image: "Xs Xr/Xs Silicone/midnight blue"),
+            Case(name: "Nectarine", type: .silicone, image: "Xs Xr/Xs Silicone/Nectarine"),
+            Case(name: "Papaya", type: .silicone, image: "Xs Xr/Xs Silicone/papaya"),
+            Case(name: "Pink Sand", type: .silicone, image: "Xs Xr/Xs Silicone/pink sand"),
+            Case(name: "Red", type: .silicone, image: "Xs Xr/Xs Silicone/red"),
+            Case(name: "Spearmint", type: .silicone, image: "Xs Xr/Xs Silicone/spearmint"),
+            Case(name: "Stone", type: .silicone, image: "Xs Xr/Xs Silicone/Stone"),
+            Case(name: "White", type: .silicone, image: "Xs Xr/Xs Silicone/white"),
+          ]),
     Phone(name: "iPhone 11", image: "11/Silicone/Black",
           caseTypes: [.battery, .silicone],
           caseList: [
@@ -222,9 +261,9 @@ let phonesList: [Phone] = [
             Case(name: "White", type: .silicone, image: "11 Pro/Silicone/white")
           ]
          ),
-    Phone(name: "iPhone 12", image: "12 Series/Leather/Deep Violet",
-          caseTypes: [.clear, .leather, .silicone, .sleeve],
-          caseList: [])
+//    Phone(name: "iPhone 12", image: "12 Series/Leather/Deep Violet",
+//          caseTypes: [.clear, .leather, .silicone, .sleeve],
+//          caseList: [])
 ]
 
 struct ContentView: View {
@@ -247,7 +286,7 @@ struct PhoneView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 70, alignment: .center)
             Text("\(phone.name) cases")
-                .font(.title2)
+                .font(.system(size: 20, weight: .bold, design: .rounded))
                 .bold()
                 .padding(.leading, 12)
             Spacer()
@@ -263,52 +302,45 @@ struct CasesView: View {
             HStack {
                 ForEach(phone.caseTypes, id: \.self) { type in
                     Button(type.rawValue.uppercased()) {
-                        switch type {
-                            case .leather:
-                                break
-                            case .silicone:
-                                break
-                            case .battery:
-                                break
-                            case .folio:
-                                break
-                            case .sleeve:
-                                break
-                            case .clear:
-                                break
-                        }
+                        list = phone.caseList.filter { $0.type == type }
                     }
+                    .font(.system(size: 18, weight: .medium, design: .rounded))
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(Color.green)
-                    .clipShape(Capsule())
+                    .background(Color(.sRGB, red: 0.95, green: 0.95, blue: 0.95, opacity: 1))
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
                 }
             }
-            .padding()
-            TabView {
-                ForEach(phone.caseList, id: \.self) { item in
-                    VStack {
-                        Image(uiImage: UIImage(named: item.image) ?? UIImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 200, height: 200, alignment: .center)
-                        Text(item.name)
-                            .font(.title)
-                            .bold()
-                            .padding(.top, 20)
-                        Text(item.type.rawValue.capitalized)
-                            .font(.body)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.green)
-                            .cornerRadius(4)
+            .padding(.top, 24)
+            .padding(.bottom, 50)
+            .padding(.horizontal)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(list, id: \.self) { item in
+                        VStack {
+                            Image(uiImage: UIImage(named: item.image) ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 260, height: 260, alignment: .center)
+                            Text(item.name)
+                                .font(.system(size: 24, weight: .bold, design: .rounded))
+                                .bold()
+                                .padding(.top, 20)
+                            Text(item.type.rawValue.capitalized)
+                                .font(.system(size: 16, weight: .medium, design: .rounded))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.green)
+                                .cornerRadius(4)
+                        }
+                        .padding(.top, 16)
+                        .frame(width: 260)
                     }
-                    .padding(.top, 16)
                 }
+                
             }
+            Spacer()
         }
-        .tabViewStyle(PageTabViewStyle())
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationBarTitle("\(phone.name) Cases")
         .navigationBarTitleDisplayMode(.inline)
     }
