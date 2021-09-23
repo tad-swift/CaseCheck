@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SceneKit
 
 enum CaseType: String, CaseIterable {
     case leather, silicone, battery
@@ -193,7 +194,7 @@ let phonesList: [Phone] = [
             Case(name: "Red", type: .folio, image: "Xs Xr/Xs Folio/Red"),
             Case(name: "sunset", type: .folio, image: "Xs Xr/Xs Folio/sunset"),
             
-            Case(name: "Black", type: .leather, image: "Xs Xr/Xs Leather/black"),
+            Case(name: "Black", type: .leather, image: "Xs Xr/Xs Leather/Black"),
             Case(name: "Cape Cod Blue", type: .leather, image: "Xs Xr/Xs Leather/cape cod blue"),
             Case(name: "Cornflower", type: .leather, image: "Xs Xr/Xs Leather/cornflower"),
             Case(name: "Forest Green", type: .leather, image: "Xs Xr/Xs Leather/Forest Green"),
@@ -298,22 +299,25 @@ struct CasesView: View {
     var phone: Phone
     @State var list: [Case]
     var body: some View {
+        let compatiblePhones = ["iPhone X","iPhone 8","iPhone 11 Pro","iPhone 12 Pro"]
         VStack {
-            HStack {
-                ForEach(phone.caseTypes, id: \.self) { type in
-                    Button(type.rawValue.uppercased()) {
-                        list = phone.caseList.filter { $0.type == type }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(phone.caseTypes, id: \.self) { type in
+                        Button(type.rawValue.uppercased()) {
+                            list = phone.caseList.filter { $0.type == type }
+                        }
+                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color(.sRGB, red: 0.95, green: 0.95, blue: 0.95, opacity: 1))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
                     }
-                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                    .background(Color(.sRGB, red: 0.95, green: 0.95, blue: 0.95, opacity: 1))
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
                 }
+                .padding(.horizontal)
             }
             .padding(.top, 24)
             .padding(.bottom, 50)
-            .padding(.horizontal)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(list, id: \.self) { item in
@@ -340,8 +344,73 @@ struct CasesView: View {
                 
             }
             Spacer()
+            if compatiblePhones.contains(phone.name) {
+                switch phone.name {
+                    case "iPhone 8":
+                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
+                    case "iPhone X":
+                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhoneX Master.scn"))
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
+                    case "iPhone 11 Pro":
+                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 11 Pro.scn"))
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
+                    case "iPhone 12 Pro":
+                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 12 Pro.scn"))
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
+                    default:
+                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
+                }
+            }
+            Spacer()
         }
         .navigationBarTitle("\(phone.name) Cases")
         .navigationBarTitleDisplayMode(.inline)
     }
+}
+
+struct ModelView: View {
+    var sceneDirectory: String
+    var scene: SCNScene? {
+        SCNScene(named: sceneDirectory)
+    }
+    
+    var cameraNode: SCNNode? {
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x: 0, y: 6, z: 20)
+        return cameraNode
+    }
+    
+    var body: some View {
+        SceneView(
+            scene: scene,
+            pointOfView: cameraNode,
+            options: [
+                .allowsCameraControl,
+                .autoenablesDefaultLighting,
+                .temporalAntialiasingEnabled
+            ]
+        )
+    }
+}
+
+extension Color {
+    static var gray = Color(.sRGB, red: 0.95, green: 0.95, blue: 0.95, opacity: 1)
 }
