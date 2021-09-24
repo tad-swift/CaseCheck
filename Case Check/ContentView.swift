@@ -7,7 +7,8 @@
 
 import SwiftUI
 import SceneKit
-import UIKit
+import ARKit
+import UIKit.UIColor
 
 enum CaseType: String, CaseIterable {
     case leather, silicone, battery
@@ -119,10 +120,10 @@ let phonesList: [Phone] = [
             Case(name: "Black", type: .leather, image: "8/Leather/black"),
             Case(name: "Bright Orange", type: .leather, image: "8/Leather/bright orange"),
             Case(name: "Charcoal Gray", type: .leather, image: "8/Leather/charcoal gray"),
-            Case(name: "Cosmos Blue", type: .leather, image: "8/Leather/cosmos blue"),
-            Case(name: "Dark Aubergine", type: .leather, image: "8/Leather/dark aubergine"),
-            Case(name: "Electric Blue", type: .leather, image: "8/Leather/black"),
-            Case(name: "Midnight Blue", type: .leather, image: "8/Leather/black"),
+            Case(name: "Cosmos Blue", type: .leather, image: "8/Leather/Cosmos Blue"),
+            Case(name: "Dark Aubergine", type: .leather, image: "8/Leather/Dark Aubergine"),
+            Case(name: "Electric Blue", type: .leather, image: "8/Leather/electric blue"),
+            Case(name: "Midnight Blue", type: .leather, image: "8/Leather/midnight blue"),
             Case(name: "Pink Fuchsia", type: .leather, image: "8/Leather/pink fuchsia"),
             Case(name: "Red", type: .leather, image: "8/Leather/red"),
             Case(name: "Saddle Brown", type: .leather, image: "8/Leather/saddle brown"),
@@ -137,7 +138,7 @@ let phonesList: [Phone] = [
           caseList: [
             Case(name: "Black", type: .leather, image: "X/Leather/black"),
             Case(name: "Bright Orange", type: .leather, image: "X/Leather/bright orange"),
-            Case(name: "Charcoal Gray", type: .leather, image: "X/Leather/charcoal gray"),
+            Case(name: "Charcoal Gray", type: .leather, image: "X/Leather/charcole gray"),
             Case(name: "Cosmos Blue", type: .leather, image: "X/Leather/cosmos blue"),
             Case(name: "Dark Aubergine", type: .leather, image: "X/Leather/Dark Aubergine"),
             Case(name: "Electric Blue", type: .leather, image: "X/Leather/electric blue"),
@@ -203,7 +204,7 @@ let phonesList: [Phone] = [
             Case(name: "Midnight Blue", type: .leather, image: "Xs Xr/Xs Leather/Midnight Blue"),
             Case(name: "Peony Pink", type: .leather, image: "Xs Xr/Xs Leather/Peony Pink"),
             Case(name: "Red", type: .leather, image: "Xs Xr/Xs Leather/red"),
-            Case(name: "Saddle Brown", type: .leather, image: "Xs Xr/Xs Leather/saddle brown"),
+            Case(name: "Saddle Brown", type: .leather, image: "Xs Xr/Xs Leather/Saddle Brown"),
             Case(name: "Sunset", type: .leather, image: "Xs Xr/Xs Leather/sunset"),
             Case(name: "Taupe", type: .leather, image: "Xs Xr/Xs Leather/Taupe"),
             
@@ -226,7 +227,7 @@ let phonesList: [Phone] = [
           caseList: [
             Case(name: "Black", type: .battery, image: "11/Battery/black"),
             Case(name: "White", type: .battery, image: "11/Battery/Soft White"),
-            Case(name: "Black", type: .silicone, image: "11/Silicone/black"),
+            Case(name: "Black", type: .silicone, image: "11/Silicone/Black"),
             Case(name: "Soft White", type: .silicone, image: "11/Silicone/Soft White"),
             Case(name: "Clear", type: .silicone, image: "11/Silicone/Clear"),
             Case(name: "Vitamin C", type: .silicone, image: "11/Silicone/Vitamin C"),
@@ -424,6 +425,7 @@ struct ModelView: View {
                 ]
             )
             ColorPicker("Set the phone color", selection: $bgColor, supportsOpacity: false)
+                .padding(.horizontal)
                 .frame(height: 60)
         }
         
