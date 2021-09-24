@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		45411D1126FD1508002846BC /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 45411D1026FD1508002846BC /* art.scnassets */; };
 		45B90EF4266FD09C00F79921 /* Case_CheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */; };
-		45B90EF6266FD09C00F79921 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B90EF5266FD09C00F79921 /* ContentView.swift */; };
 		45B90EF8266FD09E00F79921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B90EF7266FD09E00F79921 /* Assets.xcassets */; };
 		45B90EFB266FD09E00F79921 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B90EFA266FD09E00F79921 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -19,7 +18,6 @@
 		456CC28A26724F56008EC4A0 /* Case Check.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Case Check.entitlements"; sourceTree = "<group>"; };
 		45B90EF0266FD09C00F79921 /* Case Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Case Check.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case_CheckApp.swift; sourceTree = "<group>"; };
-		45B90EF5266FD09C00F79921 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45B90EF7266FD09E00F79921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/tadreik/Library/Apps/Case Check/Case Check/Assets.xcassets"; sourceTree = "<absolute>"; };
 		45B90EFA266FD09E00F79921 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45B90EFC266FD09E00F79921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			children = (
 				456CC28A26724F56008EC4A0 /* Case Check.entitlements */,
 				45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */,
-				45B90EF5266FD09C00F79921 /* ContentView.swift */,
 				45B90EF7266FD09E00F79921 /* Assets.xcassets */,
 				45411D1026FD1508002846BC /* art.scnassets */,
 				45B90EFC266FD09E00F79921 /* Info.plist */,
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B90EF6266FD09C00F79921 /* ContentView.swift in Sources */,
 				45B90EF4266FD09C00F79921 /* Case_CheckApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +272,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Case Check/Case Check.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Case Check/Preview Content\"";
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;
@@ -303,7 +299,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Case Check/Case Check.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Case Check/Preview Content\"";
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;
