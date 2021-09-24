@@ -276,7 +276,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Case Check/Case Check.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Case Check/Preview Content\"";
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;
@@ -303,7 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Case Check/Case Check.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Case Check/Preview Content\"";
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SceneKit
+import UIKit
 
 enum CaseType: String, CaseIterable {
     case leather, silicone, battery
@@ -310,7 +311,7 @@ struct CasesView: View {
                         .font(.system(size: 18, weight: .medium, design: .rounded))
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color(.sRGB, red: 0.95, green: 0.95, blue: 0.95, opacity: 1))
+                        .background(Color.gray)
                         .clipShape(RoundedRectangle(cornerRadius: 6))
                     }
                 }
@@ -347,31 +348,31 @@ struct CasesView: View {
             if compatiblePhones.contains(phone.name) {
                 switch phone.name {
                     case "iPhone 8":
-                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
+                        NavigationLink("Open in AR", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
                     case "iPhone X":
-                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhoneX Master.scn"))
+                        NavigationLink("Open in AR", destination: ModelView(sceneDirectory: "art.scnassets/iPhoneX Master.scn"))
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
                     case "iPhone 11 Pro":
-                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 11 Pro.scn"))
+                        NavigationLink("Open in AR", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 11 Pro.scn"))
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
                     case "iPhone 12 Pro":
-                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 12 Pro.scn"))
+                        NavigationLink("Open in AR", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 12 Pro.scn"))
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(RoundedRectangle(cornerRadius: 6).foregroundColor(Color.gray))
                     default:
-                        NavigationLink("Customize this phone", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
+                        NavigationLink("Open in AR", destination: ModelView(sceneDirectory: "art.scnassets/iPhone 8.scn"))
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
@@ -387,8 +388,21 @@ struct CasesView: View {
 
 struct ModelView: View {
     var sceneDirectory: String
+    @State private var bgColor: Color = Color.black
+    
     var scene: SCNScene? {
-        SCNScene(named: sceneDirectory)
+        let s = SCNScene(named: sceneDirectory)
+        s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "BackCover")?.diffuse.contents = UIColor(bgColor)
+        s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "CaseSides")?.diffuse.contents = UIColor(bgColor)
+        if sceneDirectory.contains("11 Pro") {
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "mat-cam-backplate")?.diffuse.contents = UIColor(bgColor)
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "mat-vol-up")?.diffuse.contents = UIColor(bgColor)
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "mat-vol-down")?.diffuse.contents = UIColor(bgColor)
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "sim-slot")?.diffuse.contents = UIColor(bgColor)
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "mat-silencer")?.diffuse.contents = UIColor(bgColor)
+            s?.rootNode.childNode(withName: "Body", recursively: true)?.geometry?.material(named: "mat-on-off-button")?.diffuse.contents = UIColor(bgColor)
+        }
+        return s
     }
     
     var cameraNode: SCNNode? {
@@ -399,15 +413,20 @@ struct ModelView: View {
     }
     
     var body: some View {
-        SceneView(
-            scene: scene,
-            pointOfView: cameraNode,
-            options: [
-                .allowsCameraControl,
-                .autoenablesDefaultLighting,
-                .temporalAntialiasingEnabled
-            ]
-        )
+        VStack {
+            SceneView(
+                scene: scene,
+                pointOfView: cameraNode,
+                options: [
+                    .allowsCameraControl,
+                    .autoenablesDefaultLighting,
+                    .temporalAntialiasingEnabled
+                ]
+            )
+            ColorPicker("Set the phone color", selection: $bgColor, supportsOpacity: false)
+                .frame(height: 60)
+        }
+        
     }
 }
 
