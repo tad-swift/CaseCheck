@@ -11,6 +11,11 @@
 		45B90EF4266FD09C00F79921 /* Case_CheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */; };
 		45B90EF8266FD09E00F79921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B90EF7266FD09E00F79921 /* Assets.xcassets */; };
 		45B90EFB266FD09E00F79921 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B90EFA266FD09E00F79921 /* Preview Assets.xcassets */; };
+		45EA4FA028D6A9310018C99E /* CasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4F9F28D6A9310018C99E /* CasesView.swift */; };
+		45EA4FA228D6A95D0018C99E /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4FA128D6A95D0018C99E /* ModelView.swift */; };
+		45EA4FA428D6A9820018C99E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4FA328D6A9820018C99E /* UIImageExtension.swift */; };
+		45EA4FA628D6A9A80018C99E /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4FA528D6A9A80018C99E /* Phone.swift */; };
+		45EA4FA828D6A9F20018C99E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA4FA728D6A9F20018C99E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		45B90EF7266FD09E00F79921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B90EFA266FD09E00F79921 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45B90EFC266FD09E00F79921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45EA4F9F28D6A9310018C99E /* CasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesView.swift; sourceTree = "<group>"; };
+		45EA4FA128D6A95D0018C99E /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		45EA4FA328D6A9820018C99E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		45EA4FA528D6A9A80018C99E /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
+		45EA4FA728D6A9F20018C99E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,11 @@
 			children = (
 				456CC28A26724F56008EC4A0 /* Case Check.entitlements */,
 				45B90EF3266FD09C00F79921 /* Case_CheckApp.swift */,
+				45EA4FA728D6A9F20018C99E /* Constants.swift */,
+				45EA4F9F28D6A9310018C99E /* CasesView.swift */,
+				45EA4FA528D6A9A80018C99E /* Phone.swift */,
+				45EA4FA128D6A95D0018C99E /* ModelView.swift */,
+				45EA4FA328D6A9820018C99E /* UIImageExtension.swift */,
 				45B90EF7266FD09E00F79921 /* Assets.xcassets */,
 				45411D1026FD1508002846BC /* art.scnassets */,
 				45B90EFC266FD09E00F79921 /* Info.plist */,
@@ -141,7 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45EA4FA628D6A9A80018C99E /* Phone.swift in Sources */,
+				45EA4FA228D6A95D0018C99E /* ModelView.swift in Sources */,
+				45EA4FA028D6A9310018C99E /* CasesView.swift in Sources */,
 				45B90EF4266FD09C00F79921 /* Case_CheckApp.swift in Sources */,
+				45EA4FA428D6A9820018C99E /* UIImageExtension.swift in Sources */,
+				45EA4FA828D6A9F20018C99E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +297,8 @@
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Case Check/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +325,8 @@
 				DEVELOPMENT_TEAM = 867H59QZX6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Case Check/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
